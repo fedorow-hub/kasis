@@ -1,0 +1,55 @@
+@import "./../../variables";
+
+.page {
+  &__header {
+    background-color: $mainBackColor;
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1280px;
+    min-width: 320px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+}
+
+.breadcrumbs {
+  &__list {
+    display: flex;
+    margin-bottom: 48px;
+  }
+
+  &__link{
+    padding-right: 20px;
+    color: #C0C0C0;
+    transition: color 0.3s ease;
+  }
+}
+
+.page_title {
+  font-size: 48px;
+  line-height: 57px;
+}
+
+.seasonal_recipes {
+  padding-top: 50px;
+  background-image: radial-gradient(farthest-corner at 50% 0, #ffffff 50%, #FDF4E1 150%);
+}
+
+.recepy_all {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: $mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $mobileSmall) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

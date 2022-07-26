@@ -1,0 +1,136 @@
+@import "./../../../variables";
+
+.recipes_useful {
+  padding-top: 88px;
+  padding-bottom: 36px;
+  background-image: radial-gradient(farthest-corner at 50% 0, #ffffff 50%, #FDF4E1 150%);
+
+  &__container {
+    position: relative;
+    max-width: 1280px;
+    min-width: 320px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  // .recipes-useful__title
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  // .recipes-useful__slider
+
+  &__image_1 {
+    position: absolute;
+    top: -250px;
+    left: -300px;
+  }
+  &__image_2 {
+    position: absolute;
+    top: 300px;
+    right: -200px;
+  }
+
+  // .recipes-useful__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(328px, 1fr));
+    overflow: visible;
+  }
+}
+
+.controll-recipes-useful {
+  position: absolute;
+  display: inline-flex;
+  width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  right: 10px;
+  top: 10px;
+  @media (max-width:$mobileSmall){
+    display: none;
+  }
+
+  // .controll-recipes-useful__button-prev
+
+  &__button-prev {
+    &::before{
+      color: $mainOrange;
+      transform: rotate(90deg);
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+
+  // .controll-recipes-useful__button-next
+
+  &__button-next {
+    &::before{
+      color: $mainOrange;
+      transform: rotate(-90deg);
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+
+  &__patination {
+    font-size: 22px;
+  }
+}
+
+.item_useful {
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  // .item-useful__image-ibg
+
+  &__image_ibg {
+    width: 100%;
+    height: 238px;
+  }
+
+  // .item-useful__content
+
+  &__content {
+    flex: 1 1 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+  }
+
+  // .item-useful__recipe
+
+  &__recipe {
+    flex: 1 1 auto;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  // .item-useful__link
+
+  &__link {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 14px;
+    transition: color .3s ease;
+    &::before{
+      color: $mainOrange;
+      font-size: 12px;
+      transform: rotate(-90deg);
+      margin-left: 15px;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $mainOrange;
+      }
+    }
+  }
+}

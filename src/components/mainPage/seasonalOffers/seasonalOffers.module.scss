@@ -1,0 +1,65 @@
+@import "./../../../variables";
+
+.seasonal_recipes {
+  padding-top: 50px;
+  background-image: radial-gradient(farthest-corner at 50% 0, #ffffff 50%, #FDF4E1 150%);
+
+  &__container {
+    position: relative;
+    max-width: 1280px;
+    min-width: 320px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  // .recipes-all__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(242px, 1fr));
+    padding-bottom: 60px;
+    padding-top: 5px;
+  }
+
+  // .recipes-all__item
+
+  &__item {
+    display: flex;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all .3s ease;
+    @media (any-hover: hover){
+      &:hover{
+        transform: translate(-2px, -2px);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+      }
+    }
+  }
+
+  // .recipes-all__button
+
+  &__button {
+    position: absolute;
+    right: 15px;
+    bottom: -20px;
+  }
+
+  &__image_1 {
+    position: absolute;
+    top: -250px;
+    left: -300px;
+  }
+  &__image_2 {
+    position: absolute;
+    top: 300px;
+    right: -200px;
+  }
+}
+

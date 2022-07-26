@@ -1,0 +1,82 @@
+@import "./../../variables";
+
+.item_recipe {
+  display: flex;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+
+  // .item-recipe__link
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  // .item-recipe__image
+
+  &__image_ibg {
+    width: 100%;
+    height: 136px;
+    &::before{
+      position: absolute;
+      display: inline-block;
+      z-index: 2;
+      color: #fff;
+      font-size: 26px;
+      top: 15px;
+      right: 15px;
+    }
+  }
+
+  // .item-recipe__content
+
+  &__content {
+    flex: 1 1 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .item-recipe__title
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  // .item-recipe__composition
+
+  &__composition {
+    margin-bottom: 17px;
+    flex: 1 1 auto;
+  }
+
+  // .item-recipe__action
+
+  &__action {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // .item-recipe__like
+
+  &__like {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    &::before{
+      margin-left: 5px;
+    }
+  }
+
+  // .item-recipe__time
+
+  &__time {
+    display: inline-flex;
+    &::before{
+      margin-right: 12px;
+    }
+  }
+}
