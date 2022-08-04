@@ -21,19 +21,6 @@
     line-height: 28px;
   }
 
-  // .recipes-useful__slider
-
-  &__image_1 {
-    position: absolute;
-    top: -250px;
-    left: -300px;
-  }
-  &__image_2 {
-    position: absolute;
-    top: 300px;
-    right: -200px;
-  }
-
   // .recipes-useful__list
 
   &__list {
@@ -91,8 +78,21 @@
   // .item-useful__image-ibg
 
   &__image_ibg {
-    width: 100%;
-    height: 238px;
+    /*width: 100%;
+    height: 238px;*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-bottom: 58%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   // .item-useful__content

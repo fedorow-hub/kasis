@@ -7,8 +7,8 @@ import Posts from "./posts/posts";
 const MainPage = (props) => {
     return (
         <div>
-            <Hero />
-            <Filter addRecept={props.addRecept} newPostText={props.state.newPostText} updateNewPostText={props.updateNewPostText}/>
+            <Hero state={props.state.mainPage.hero}/>
+            <Filter dispatch ={props.dispatch} dropMenuIngredients = {props.state.dropMenuIngredients} ingredientsForFilter = {props.state.ingredientsForFilter}/>
             <AllRecep state={props.state.mainPage.firstLineRecep}/>
             <SeasonalOffers state={props.state.mainPage.seasonOffers}/>
             <Posts state={props.state.mainPage.posts}/>

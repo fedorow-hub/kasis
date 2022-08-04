@@ -24,8 +24,8 @@
 
 
 .bottom_footer {
-
   justify-content: space-between;
+  padding-bottom: 89px;
   @media (min-width:$mobileSmall){
     display: flex;
   }

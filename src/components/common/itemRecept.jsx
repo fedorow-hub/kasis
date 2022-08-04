@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 
 const ItemRecept = (props) => {
 
-    const template = props.state.map(el => (
-        <li className={`${s.item_recipe} swiper-slide`}>
+    const template = props.state.map((el, i) => (
+        <li key={i} className={`${s.item_recipe} swiper-slide`}>
             <Link to="" className={s.item_recipe__link}>
                 <div className={s.item_recipe__image_ibg}>
                     <img src={el.img} className="" alt="Изображение"/>

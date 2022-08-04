@@ -21,7 +21,7 @@ const Catalog = (props) => {
                     <h1 className={s.page_title}>Всички рецепти</h1>
                 </div>
             </div>
-            <Filter addRecept={props.addRecept} newPostText={props.state.newPostText} updateNewPostText={props.updateNewPostText}/>
+            <Filter dispatch ={props.dispatch} newPostText={props.state.newPostText} />
             <section className={s.seasonal_recipes}>
                 <div className={s.page__container}>
                     <ul className={s.recepy_all}>

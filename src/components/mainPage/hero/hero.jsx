@@ -1,38 +1,57 @@
 import s from './hero.module.scss';
-import mainImage from './../../../img/hero.png';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {Virtual, Navigation, Pagination} from 'swiper';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import si from "../allRecepes/allRecepes.module.scss";
+import {Link} from "react-router-dom";
 
 const Hero = (props) => {
+
+    const slides = props.state.map((el, i) => (
+        <div key={i} className={s.main_slider__swiper} >
+            <div className={s.main_slider__image}>
+                <img src={el.img} alt="Картинка"/>
+                <a href="recept.html" data-swiper-parallax-opacity="0" data-swiper-parallax-y="100%"
+                   className={s.info_slider}>
+                    <h3 className={s.info_slider__title}>{el.title}</h3>
+                    <div className={s.info_slider__content}>
+                        {el.text}
+                    </div>
+                </a>
+            </div>
+        </div>
+    ));
+
     return (
         <section className={s.main_slider}>
             <div className={s.main_slider__container}>
-                <div className={`${s.main_slider__swiper} swiper`}>
-                    <div className="swiper-wrapper">
-                        <div className={`${s.main_slider__slide} swiper-slide`}>
-                            <div className={s.main_slider__image}>
-                                <img src={mainImage} alt="Картинка"/>
-                                    <a href="recept.html" data-swiper-parallax-opacity="0" data-swiper-parallax-y="100%"
-                                       className={s.info_slider}>
-                                        <h3 className={s.info_slider__title}>Боб в гювеч</h3>
-                                        <div className={s.info_slider__content}>
-                                            Съставки: боб, лук, мокров, чушка, дом ат, чесън, червен пипер, гьозум, сол,
-                                            олео
-                                        </div>
-                                    </a>
-                            </div>
-                        </div>
+                <Swiper className={s.recipes_all__list}
+                        modules={[Virtual, Pagination, Navigation]}
+                        navigation
+                        pagination = {{ clickable: true }}
+                        spaceBetween={16}
+                        slidesPerView={1}
+                        virtual
+                >
+                    {slides.map((slideContent, index) => (
+                        <SwiperSlide className={si.recipes_all__list} key={slideContent} virtualIndex={index}>
+                            {slideContent}
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
 
-                    </div>
-                    <div className={s.controls_slider_main}>
-                        <button type="button" className="slider-arrow slider-arrow_prev _icon-arrow-down"></button>
-                        <div className="controls-slider-main__dots"></div>
-                        <button type="button" className="slider-arrow slider-arrow_next _icon-arrow-down"></button>
-                    </div>
-                </div>
                 <div className={s.main_slider__body}>
                     <h2 className={s.main_slider__title}>Основни ястия:</h2>
                     <div className={s.main_slider__text}>
                         31 начина, как да изненадате близките си
                     </div>
+
                     <a href="#" className="btn">Виж още</a>
                 </div>
             </div>
