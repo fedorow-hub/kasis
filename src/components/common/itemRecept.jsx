@@ -6,7 +6,7 @@ const ItemRecept = (props) => {
     const template = props.state.map((el, i) => (
         <li key={i} className={`${s.item_recipe} swiper-slide`}>
             <Link to="" className={s.item_recipe__link}>
-                <div className={s.item_recipe__image_ibg}>
+                <div className={s.item_recipe__image}>
                     <img src={el.img} className="" alt="Изображение"/>
                 </div>
                 <div className={s.item_recipe__content}>

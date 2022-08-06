@@ -1,50 +1,39 @@
 import React from 'react';
 import s from './filter.module.scss';
-import {
-    actionCreatorAddRecept,
-    actionCreatorUpdateNewPostText,
-    actionCreatorAddIngredientsForFilter,
-    actionCreatorRemoveFilter
-} from "../../../redux/state";
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
-
 
 const Filter = (props) => {
 
     let ingredient = React.createRef();
-    function addToFilter(key) {
+    function onAddToFilter(key) {
         let listOfIngredients = spollerActive.current;
         let button = buttonActive.current;
         listOfIngredients.className = s.dishes_filter__spoller;
         button.className = s.dishes_filter__ingredient_add;
-        let temp = props.dropMenuIngredients[key];
-        props.dispatch(actionCreatorAddIngredientsForFilter(temp));
+        let temp = props.state.dropMenuIngredients[key];
+        props.addToFilter(temp);
     }
 
-    function removeFilters() {
-        props.dispatch(actionCreatorRemoveFilter())
+    function onRemoveFilters() {
+        props.removeFilters();
     }
 
-    const listOfIngredients = props.dropMenuIngredients.map((el, i) => (
+    const listOfIngredients = props.state.dropMenuIngredients.map((el, i) => (
         <li ref={ingredient} className={s.dishes_filter__link} value={el}>
-            <a onClick={() => addToFilter(i)}>{el}</a>
+            <a onClick={() => onAddToFilter(i)}>{el}</a>
         </li>
     ));
 
-    const ingredientsForFilter = props.ingredientsForFilter.map((el, i) => (
+    const ingredientsForFilter = props.state.ingredientsForFilter.map((el, i) => (
         <li key={i} className={s.dishes_filter__ingredient}>{el}</li>
     ));
 
     let newPost = React.createRef();
 
-    let addRecept = () => {
-        props.dispatch(actionCreatorAddRecept());
-    }
-
-    let onPostChange = () => {
+    let onUserSearchChange = () => {
         let text = newPost.current.value;
-        props.dispatch(actionCreatorUpdateNewPostText(text));
+        props.userSearchChange(text);
     }
 
     let spollerActive = React.createRef();
@@ -61,9 +50,9 @@ const Filter = (props) => {
         <section className={s.dishes_filter}>
             <div className={s.dishes_filter__container}>
                 <form action="#" data-spollers className={s.form_filter}>
-                    <textarea onChange={onPostChange} ref={newPost} type="text" name="form[]" placeholder="Търси"
-                              className={s.form_filter__input} value={props.newPostText}/>
-                    <button onClick={addRecept} type="button" className={s.form_filter__button}>Всички рецепти</button>
+                    <textarea onChange={onUserSearchChange} ref={newPost} type="text" name="form[]" placeholder="Търси"
+                              className={s.form_filter__input} value={props.state.userSearch}/>
+                    <button type="button" className={s.form_filter__button}>Всички рецепти</button>
                 </form>
                 <div className={s.dishes_filter__bottom}>
                     <div className={s.dishes_filter__ingredients}>
@@ -89,7 +78,7 @@ const Filter = (props) => {
                             {ingredientsForFilter}
                         </ul>
                     </div>
-                    <button onClick={removeFilters} className={s.dishes_filter__reset}>Примахни филтрите</button>
+                    <button onClick={onRemoveFilters} className={s.dishes_filter__reset}>Примахни филтрите</button>
                 </div>
                 <div className="dishes-filter__adapt"></div>
             </div>

@@ -10,10 +10,8 @@ function App(props) {
         <div className='app-wrapper'>
             <Header/>
             <div className="page">
-                <Route exact path='/' component={() => <MainPage state={props.state}
-                                                                 dispatch ={props.dispatch}/>}/>
-                <Route path='/catalog' component={() => <Catalog state={props.state}
-                                                                 dispatch ={props.dispatch}/>}/>
+                <Route exact path='/' component={() => <MainPage store = {props.store}/>}/>
+                <Route path='/catalog' component={() => <Catalog store = {props.store}/>}/>
             </div>
             <Footer/>
         </div>

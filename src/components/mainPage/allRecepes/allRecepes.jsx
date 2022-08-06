@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {Virtual} from 'swiper';
+import {Virtual, Mousewheel} from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -64,9 +64,10 @@ const AllRecep = (props) => {
                                     slidesPerView: 4
                                 },
                             }}
-                        modules={[Virtual]}
+                            modules={[Virtual, Mousewheel]}
                             spaceBetween={16}
                             slidesPerView={4}
+                            mousewheel
                             virtual
                     >
                         {slides.map((slideContent, index) => (

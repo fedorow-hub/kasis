@@ -1,7 +1,7 @@
 @import "./../../variables";
 
 .item_recipe {
-  display: flex;
+  //display: flex;
   background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
@@ -16,7 +16,19 @@
 
   // .item-recipe__image
 
-
+  &__image {
+    position: relative;
+    width: 100%;
+    padding-bottom: 45%;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 
   // .item-recipe__content
 
