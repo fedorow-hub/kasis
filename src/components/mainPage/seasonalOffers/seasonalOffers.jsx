@@ -13,8 +13,37 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const SeasonalOffers = (props) => {
+    let date = new Date().getMonth();
+    let season;
 
-    const slides = props.state.map((el, i) => (
+    switch (date) {
+        case 11:
+        case 0:
+        case 1:
+            season = 0;
+            break;
+        case 2:
+        case 3:
+        case 4:
+            season = 1;
+            break;
+        case 5:
+        case 6:
+        case 7:
+            season = 2;
+            break;
+        case 8:
+        case 9:
+        case 10:
+            season = 3;
+            break;
+        default:
+            season = -1;
+    }
+
+    let seasonRecepies = props.state.filter(item => item.season === season);
+
+    const slides = seasonRecepies.map((el, i) => (
         <li key={i} className={si.item_recipe} >
             <Link to="" className={si.item_recipe__link}>
                 <div className={si.item_recipe__image_ibg}>
@@ -86,9 +115,7 @@ const SeasonalOffers = (props) => {
                             {slideContent}
                         </SwiperSlide>
                     ))}
-
                 </Swiper>
-
                 <Link to="catalog" type="button" className={`${s.seasonal_recipes__button} btn`}>Виж всички
                     рецепти
                 </Link>
