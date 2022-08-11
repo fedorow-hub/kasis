@@ -7,7 +7,7 @@ import {
     actionCreatorUpdateUserSearchText
 } from "../../../redux/filter-reducer";
 import Filter from "./filter";
-import {actionCreatorFiltrationCatalog} from "../../../redux/catalog-reducer";
+import {actionCreatorCleanFiltredCatalog, actionCreatorFiltrationCatalog} from "../../../redux/catalog-reducer";
 
 const FilterContainer = (props) => {
     let state = props.store.getState().filter;
@@ -18,6 +18,7 @@ const FilterContainer = (props) => {
 
     function removeFilters() {
         props.store.dispatch(actionCreatorRemoveFilter());
+        props.store.dispatch(actionCreatorCleanFiltredCatalog());
     }
 
     let userSearchChange = (text) => {

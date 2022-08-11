@@ -1,5 +1,6 @@
 //Сезоны условно обозначены: зима - 0, весна - 1, лето - 2, осень - 3
 let FILTRATION_CATALOG = 'FILTRATION-CATALOG';
+let CLEAN_FILTER_CATALOG = 'CLEAN-FILTER-CATALOG';
 
 let initialState = {
     fullCatalog: [
@@ -105,7 +106,7 @@ let initialState = {
     {ingredient: 'крутони', amount: '' },
 
 ],
-    instruction: 'Обелваме и нарязваме на средни кубчета тиквата, картофа и  моркова. Заливаме с вода да се покрият зеленчуците, осоляваме ги и ги сваряваме. Настъргваме чесъна, добавяме в супата и пасираме всичко заедно. Супата е готова,поднася се с настърган пармезан и крутони.'
+    instruction: 'Обелваме и нарязваме на средни кубчета тиквата, картофа и  моркова. Заливаме с вода да се покрият зеленчуците, осоляваме ги и ги сваряваме. Настъргваме чесъна, добавяме в супата и пасираме всичко заедно. Супата е готова, поднася се с настърган пармезан и крутони.'
 },
 {
     id: 6,
@@ -1142,6 +1143,8 @@ const catalogReducer = (state = initialState, action) => {
                 }
             }
             return state;
+        case CLEAN_FILTER_CATALOG:
+            state.filtredCatalog = [];
         default:
             return state;
     }
@@ -1157,5 +1160,8 @@ export const actionCreatorFiltrationCatalog = (ingredients, ingredient = '') => 
         arrayOfIngredients: ingredients
     }
 }
+
+export const actionCreatorCleanFiltredCatalog = () => ({type: CLEAN_FILTER_CATALOG})
+
 
 export default catalogReducer;

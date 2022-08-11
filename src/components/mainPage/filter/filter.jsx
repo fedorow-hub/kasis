@@ -18,6 +18,7 @@ const Filter = (props) => {
 
     function onRemoveFilters() {
         props.removeFilters();
+
     }
 
     const listOfIngredients = props.state.dropMenuIngredients.map((el, i) => (

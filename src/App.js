@@ -20,6 +20,9 @@ function App(props) {
                 <Route path='catalogFiltred' element = {<CatalogFilterByAny store = {props.store}/>}/>
                 <Route path='recept/:id' element = {<Recept store = {props.store}/>}/>
                 <Route path='catalog/recept/:id' element = {<Recept store = {props.store}/>}/>
+                <Route path='catalogFiltred/recept/:id' element = {<Recept store = {props.store}/>}/>
+                <Route path='catalog/Супи/recept/:id' element = {<Recept store = {props.store}/>}/>
+
 
                 <Route path='*' element = {<NotFoundPage/>}/>
             </Routes>

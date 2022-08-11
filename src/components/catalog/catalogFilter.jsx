@@ -15,8 +15,11 @@ const CatalogFilter = (props) => {
                 <div className={s.page__container}>
                     <nav>
                         <ul className={s.breadcrumbs__list}>
-                            <li className="breadcrumbs__item">
+                            <li className={s.breadcrumbs__link}>
                                 <Link to="/" className={s.breadcrumbs__link}>Главная</Link>
+                                <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.38086 1.70117L6.48757 6.80788L1.38086 11.9146" stroke="#C0C0C0" stroke-width="2"/>
+                                </svg>
                             </li>
                             <li className="breadcrumbs__item">
                                 <span className="breadcrumbs__current">Рецепти</span>

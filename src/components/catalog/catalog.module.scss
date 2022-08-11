@@ -22,8 +22,14 @@
     margin-bottom: 48px;
   }
 
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+  }
+
   &__link{
-    padding-right: 20px;
+    padding-right: 12px;
     color: #C0C0C0;
     transition: color 0.3s ease;
   }
@@ -43,6 +49,7 @@
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 95px;
 
   @media (max-width: $tablet) {
     grid-template-columns: repeat(3, 1fr);

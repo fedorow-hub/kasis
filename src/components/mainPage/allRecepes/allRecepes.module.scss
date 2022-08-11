@@ -18,6 +18,7 @@
     //gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(242px, 1fr));
     padding-bottom: 60px;
+    height: 100%;
   }
 
   // .recipes-all__button
@@ -35,6 +36,7 @@
   background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
+  height: 100%;
 
   // .item-recipe__link
 
@@ -42,12 +44,15 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    svg {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-    }
+    height: 100%;
   }
+
+  &__svg {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
 
   // .item-recipe__image
 
@@ -104,6 +109,9 @@
   &__like {
     display: inline-flex;
     flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 25px;
     &::before{
       margin-left: 5px;
     }
@@ -113,7 +121,8 @@
 
   &__time {
     display: inline-flex;
-    &::before{
+    align-items: center;
+    svg {
       margin-right: 12px;
     }
   }
