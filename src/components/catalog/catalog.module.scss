@@ -1,7 +1,9 @@
 @import "./../../variables";
 
 .page {
+  padding-top: 60px;
   &__header {
+    padding-top: 20px;
     background-color: $mainBackColor;
   }
 

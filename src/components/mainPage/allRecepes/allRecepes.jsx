@@ -10,9 +10,9 @@ import 'swiper/css';
 
 const AllRecep = (props) => {
 
-    const slides = props.state.map((el, i) => (
+    const slides = props.state.fullCatalog.map((el, i) => (
         <li key={i} className={s.item_recipe}>
-            <Link to="" className={s.item_recipe__link}>
+            <Link to={`recept/${el.id}`} className={s.item_recipe__link}>
                 <div className={s.item_recipe__image_ibg}>
                     <img src={el.img} className="" alt="Изображение"/>
                 </div>

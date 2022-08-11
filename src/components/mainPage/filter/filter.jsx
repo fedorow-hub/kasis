@@ -2,6 +2,7 @@ import React from 'react';
 import s from './filter.module.scss';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
+import {Link} from "react-router-dom";
 
 const Filter = (props) => {
 
@@ -46,13 +47,22 @@ const Filter = (props) => {
         activeButton.className = `${s.dishes_filter__ingredient_add} ${s.dishes_filter__ingredient_add_active}`;
     }
 
+    let onFilterCatalog = () => {
+        props.filterCatalog();
+    }
+
     return (
         <section className={s.dishes_filter}>
             <div className={s.dishes_filter__container}>
                 <form action="#" data-spollers className={s.form_filter}>
                     <textarea onChange={onUserSearchChange} ref={newPost} type="text" name="form[]" placeholder="Търси"
                               className={s.form_filter__input} value={props.state.userSearch}/>
-                    <button type="button" className={s.form_filter__button}>Всички рецепти</button>
+                    <Link to="catalogFiltred" onClick={onFilterCatalog} type="button" className={s.form_filter__button}>
+                        <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.5 1.5L6.5 6.5L1.5 1.5" stroke="#FFB547" stroke-width="2"/>
+                        </svg>
+                        Всички рецепти
+                    </Link>
                 </form>
                 <div className={s.dishes_filter__bottom}>
                     <div className={s.dishes_filter__ingredients}>
@@ -78,7 +88,7 @@ const Filter = (props) => {
                             {ingredientsForFilter}
                         </ul>
                     </div>
-                    <button onClick={onRemoveFilters} className={s.dishes_filter__reset}>Примахни филтрите</button>
+                    <Link to='/' onClick={onRemoveFilters} className={s.dishes_filter__reset}>Примахни филтрите</Link>
                 </div>
                 <div className="dishes-filter__adapt"></div>
             </div>

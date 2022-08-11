@@ -1,14 +1,18 @@
 const ADD_INGREDIENT_FOR_FILTER = 'ADD-INGREDIENT-FOR-FILTER';
 const REMOVE_FILTER = 'REMOVE-FILTER';
 const UPDATE_USER_SEARCH_TEXT = 'UPDATE-USER-SEARCH-TEXT';
+const REMOVE_USER_SEARCH = 'REMOVE-USER-SEARCH';
 
 let initialState = {
     dropMenuIngredients: [
-        'Чушки', 'Авокадо', 'Боб', 'Домати', 'Ориз', 'Броколи', 'Гъби', 'Кайма',
-        'Картофи', 'Тиквички', 'Яйца', 'Спанак', 'Цвекло', 'Тиква', 'Краставици', 'Кашкавал', 'Бекон', 'Будгур'
+        'чушки', 'авокадо', 'боб', 'домати', 'ориз', 'броколи', 'гъби', 'кайма',
+        'картофи', 'тиквички', 'яйца', 'спанак', 'цвекло', 'тиква', 'краставици', 'кашкавал', 'бекон', 'будгур'
     ],
-    ingredientsForFilter: [],
+    ingredientsForFilter: [
+
+    ],
     userSearch: ''
+
 }
 const ingredientForFilterReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -18,8 +22,11 @@ const ingredientForFilterReducer = (state = initialState, action) => {
         case REMOVE_FILTER:
             state.ingredientsForFilter.splice(0, state.ingredientsForFilter.length);
             return state;
+        case REMOVE_USER_SEARCH:
+            state.userSearch = '';
+            return state;
         case UPDATE_USER_SEARCH_TEXT:
-            state.userSearch = action.newText;
+            state.userSearch = action.newText.toLowerCase();
             return state;
         default:
             return state;
@@ -35,11 +42,15 @@ export const actionCreatorAddIngredientsForFilter = (ingredient) => {
 
 export const actionCreatorRemoveFilter = () => ({type: REMOVE_FILTER})
 
+export const actionCreatorRemoveUserSearch = () => ({type: REMOVE_USER_SEARCH})
+
 export const actionCreatorUpdateUserSearchText = (text) => {
     return {
         type: UPDATE_USER_SEARCH_TEXT,
         newText: text
     }
 }
+
+
 
 export default ingredientForFilterReducer;

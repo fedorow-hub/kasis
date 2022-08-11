@@ -21,13 +21,14 @@ const Header =(props) => {
                 </Link>
                 <nav className={s.body_header}>
                     <ul className={s.body_header__list}>
-                        <li className={s.body_header__item}><NavLink to="/home">Закуски и тестени</NavLink></li>
-                        <li className={s.body_header__item}><NavLink to="/profile">Салати и разядки</NavLink></li>
-                        <li className={s.body_header__item}><a href="#">Основни ястия</a></li>
-                        <li className={s.body_header__item}><a href="#">Аламинути и предястия</a></li>
-                        <li className={s.body_header__item}><a href="#">Десерти</a></li>
-                        <li className={s.body_header__item}><a href="#">Напитки</a></li>
-                        <li className={s.body_header__item}><a href="#">Зимнени</a></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Закуски и тестени">Закуски и тестени</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Салати и разядки">Салати и разядки</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Основни ястия">Основни ястия</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Аламинути и предястия">Аламинути и предястия</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Десерти">Десерти</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Напитки">Напитки</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Зимнени">Зимнени</NavLink></li>
+                        <li className={s.body_header__item}><NavLink to="catalog/Супи">Супи</NavLink></li>
                     </ul>
                 </nav>
                 <div className={s.menu}>

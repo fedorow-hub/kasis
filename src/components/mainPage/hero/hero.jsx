@@ -17,13 +17,13 @@ const Hero = (props) => {
         <div key={i} className={s.main_slider__swiper} >
             <div className={s.main_slider__image}>
                 <img src={el.img} alt="Картинка"/>
-                <a href="recept.html" data-swiper-parallax-opacity="0" data-swiper-parallax-y="100%"
+                <Link to={`recept/${el.id}`} data-swiper-parallax-opacity="0" data-swiper-parallax-y="100%"
                    className={s.info_slider}>
                     <h3 className={s.info_slider__title}>{el.title}</h3>
                     <div className={s.info_slider__content}>
                         {el.text}
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     ));

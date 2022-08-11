@@ -41,11 +41,11 @@ const SeasonalOffers = (props) => {
             season = -1;
     }
 
-    let seasonRecepies = props.state.filter(item => item.season === season);
+    let seasonRecepies = props.state.fullCatalog.filter(item => item.season === season);
 
     const slides = seasonRecepies.map((el, i) => (
         <li key={i} className={si.item_recipe} >
-            <Link to="" className={si.item_recipe__link}>
+            <Link to={`recept/${el.id}`} className={si.item_recipe__link}>
                 <div className={si.item_recipe__image_ibg}>
                     <img src={el.img} className="" alt="Изображение"/>
                 </div>
